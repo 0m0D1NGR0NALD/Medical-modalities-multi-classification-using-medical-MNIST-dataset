@@ -20,3 +20,5 @@ train_transform = transforms.Compose([
             [0.485, 0.456, 0.406],
             [0.229, 0.224, 0.225])
 ])
+
+dataset = datasets.ImageFolder(root=data,transform=train_transform)
