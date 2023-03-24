@@ -22,3 +22,6 @@ train_transform = transforms.Compose([
 ])
 
 dataset = datasets.ImageFolder(root=data,transform=train_transform)
+
+# Split dataset into train and test sets
+train_indices,test_indices = train_test_split(list(range(len(dataset.targets))),test_size=0.2,stratify=dataset.targets)
