@@ -9,18 +9,21 @@ from torchvision.utils import make_grid
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
 
+# Initializing dataset path
 data = "Modalities/"
 
+# Composing augmentation for train set
 train_transform = transforms.Compose([
-    transforms.RandomRotation(10),
-    transforms.RandomHorizontalFlip(),
-    transforms.Resize(224),
-    transforms.ToTensor(),
+    transforms.RandomRotation(10), # Rotate +|- 10 degrees
+    transforms.RandomHorizontalFlip(), # Reverse 50% of images
+    transforms.Resize(224), # Resize shortest side to 224 pixels
+    transforms.ToTensor(), # Crop longest size to 224 pixels at center
     transforms.Normalize(
             [0.485, 0.456, 0.406],
             [0.229, 0.224, 0.225])
 ])
 
+# Creating dataset
 dataset = datasets.ImageFolder(root=data,transform=train_transform)
 
 # Split dataset into train and test sets
