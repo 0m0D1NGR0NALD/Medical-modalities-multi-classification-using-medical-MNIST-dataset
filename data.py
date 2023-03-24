@@ -28,3 +28,7 @@ train_indices,test_indices = train_test_split(list(range(len(dataset.targets))),
 
 train_data = torch.utils.data.Subset(dataset,train_indices)
 test_data = torch.utils.data.Subset(dataset,test_indices)
+
+# Datasets to dataloader
+train_loader = DataLoader(train_data,batch_size=10,shuffle=True)
+test_loader = DataLoader(test_data,batch_size=10)
