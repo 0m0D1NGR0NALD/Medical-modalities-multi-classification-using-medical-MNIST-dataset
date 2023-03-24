@@ -25,3 +25,6 @@ dataset = datasets.ImageFolder(root=data,transform=train_transform)
 
 # Split dataset into train and test sets
 train_indices,test_indices = train_test_split(list(range(len(dataset.targets))),test_size=0.2,stratify=dataset.targets)
+
+train_data = torch.utils.data.Subset(dataset,train_indices)
+test_data = torch.utils.data.Subset(dataset,test_indices)
