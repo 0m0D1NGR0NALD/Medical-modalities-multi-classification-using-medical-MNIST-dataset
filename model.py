@@ -24,3 +24,5 @@ class CNN(nn.Module):
         X = F.relu(self.fc2(X))
         X = F.relu(self.fc3(X))
         X = self.fc4(X)
+        
+     return F.log_softmax(X,dim=1)
