@@ -56,3 +56,6 @@ for i in range(epochs):
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
+        
+        if b%5==0:
+            print(f"epoch: {i} loss: {loss.item} batch: {b} accuracy: {trn_corr.item()*100/(10*b):7.3f}%")
