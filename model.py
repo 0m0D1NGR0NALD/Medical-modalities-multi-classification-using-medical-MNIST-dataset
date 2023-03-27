@@ -2,8 +2,10 @@ from data import dataset,train_loader,test_loader
 import torch.nn as nn
 import torch.functional as F
 
+# Instantiate class names
 class_names = dataset.classes
 
+# Build convolutional neural network model architecture
 class CNN(nn.Module):
     def __init__(self):
         super().__init__()
@@ -27,8 +29,11 @@ class CNN(nn.Module):
         
         return F.log_softmax(X,dim=1)
 
+# Initialize model
 model = CNN()
+# Initialize loss
 criterion = nn.CrossEntropyLoss()
+# Initialize optimizer
 optimizer = torch.optim.Adam(model.parameters(),lr=0.001)
 
 start_time = time.time()
@@ -37,6 +42,7 @@ test_losses = []
 train_correct = []
 test_correct = []
 
+# Instantiate number of epochs
 epochs = 10
 
 for i in range(epochs):
