@@ -30,3 +30,9 @@ class CNN(nn.Module):
 model = CNN()
 criterion = nn.CrossEntropyLoss()
 optimizer = torch.optim.Adam(model.parameters(),lr=0.001)
+
+start_time = time.time()
+train_losses = []
+test_losses = []
+train_correct = []
+test_correct = []
