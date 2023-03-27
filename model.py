@@ -36,3 +36,5 @@ train_losses = []
 test_losses = []
 train_correct = []
 test_correct = []
+
+epochs = 10
