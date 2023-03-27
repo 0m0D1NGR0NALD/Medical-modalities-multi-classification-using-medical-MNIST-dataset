@@ -76,3 +76,6 @@ for i in range(epochs):
                 test_correct.append(tst_corr)
 
 print(f"\nDuration: {time.time() - start_time:.0f} seconds")
+
+plt.plot(train_losses,label="Train Loss")
+plt.plot(test_losses,label="Test Loss")
