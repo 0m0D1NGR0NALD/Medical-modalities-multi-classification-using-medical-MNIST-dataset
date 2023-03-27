@@ -74,3 +74,5 @@ for i in range(epochs):
                 loss = loss.detach().numpy()
                 test_losses.append(loss)
                 test_correct.append(tst_corr)
+
+print(f"\nDuration: {time.time() - start_time:.0f} seconds")
