@@ -26,3 +26,7 @@ class CNN(nn.Module):
         X = self.fc4(X)
         
         return F.log_softmax(X,dim=1)
+
+model = CNN()
+criterion = nn.CrossEntropyLoss()
+optimizer = torch.optim.Adam(model.parameters(),lr=0.001)
