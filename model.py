@@ -38,3 +38,21 @@ train_correct = []
 test_correct = []
 
 epochs = 10
+
+for i in range(epochs):
+    trn_corr = 0
+    tst_corr = 0
+    for b, (X_train,y_train) in enumerate(train_loader):
+        b += 1
+
+        y_pred = model(X_train)
+
+        loss = criterion(y_pred,y_train)
+
+        predicted = torch.max(y_pred.data,1)[1]
+        batch_corr = (predicted==y_train).sum()
+        trn_corr += batch_corr
+
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
