@@ -59,3 +59,7 @@ for i in range(epochs):
         
         if b%5==0:
             print(f"epoch: {i} loss: {loss.item} batch: {b} accuracy: {trn_corr.item()*100/(10*b):7.3f}%")
+        
+        loss = loss.detach().numpy()
+        train_losses.append(loss)
+        train_correct.append(trn_corr)
