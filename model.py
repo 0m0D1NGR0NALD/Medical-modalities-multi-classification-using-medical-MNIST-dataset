@@ -64,13 +64,13 @@ for i in range(epochs):
         train_losses.append(loss)
         train_correct.append(trn_corr)
         
-        for b, (X_test,y_test) in enumerate(test_loader):
-                y_val = model(X_test)
-                loss = criterion(y_val,y_test)
-                predicted = torch.max(y_val.data,1)[1]
-                btach_corr = (predicted==y_test).sum()
-                tst_corr += btach_corr
-            loss = loss.detach().numpy()
-            test_losses.append(loss)
-            test_correct.append(tst_corr)
- 
+        with torch.no_grad():
+            for b, (X_test,y_test) in enumerate(test_loader):
+                    y_val = model(X_test)
+                    loss = criterion(y_val,y_test)
+                    predicted = torch.max(y_val.data,1)[1]
+                    btach_corr = (predicted==y_test).sum()
+                    tst_corr += btach_corr
+                loss = loss.detach().numpy()
+                test_losses.append(loss)
+                test_correct.append(tst_corr)
