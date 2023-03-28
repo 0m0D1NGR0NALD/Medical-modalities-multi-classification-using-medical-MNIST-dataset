@@ -21,3 +21,5 @@ with torch.no_grad():
             y_pred.append(pred[i].item())
 
 print(y_pred[0:5])
+
+class_names = dataset.classes
