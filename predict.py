@@ -8,3 +8,6 @@ from model import model
 
 model.eval()
 model.to(device)
+
+y_true = []
+y_pred = []
