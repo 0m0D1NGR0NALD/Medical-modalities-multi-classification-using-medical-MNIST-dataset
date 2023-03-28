@@ -19,3 +19,5 @@ with torch.no_grad():
         for i in range(len(pred)):
             y_true.append(test_labels[i].item())
             y_pred.append(pred[i].item())
+
+print(y_pred[0:5])
