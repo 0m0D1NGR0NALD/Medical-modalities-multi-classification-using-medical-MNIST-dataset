@@ -23,3 +23,5 @@ with torch.no_grad():
 print(y_pred[0:5])
 
 class_names = dataset.classes
+
+print(classification_report(y_true,y_pred,target_names=class_names,digits=4))
