@@ -7,3 +7,4 @@ device = torch.device("cpu")
 from model import model
 
 model.eval()
+model.to(device)
